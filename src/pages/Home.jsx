@@ -142,10 +142,10 @@ export default function Home() {
 
 
       {/* Final CTA */}
-      <section style={{ backgroundColor: '#FAFAF7', borderTop: '1px solid #e8e8e4' }} className="py-10 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-0">
+      <section style={{ backgroundColor: '#FAFAF7', borderTop: '1px solid #e8e8e4' }} className="py-12 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-0">
           {/* Left: families */}
-          <div className="text-center flex-1">
+          <div className="text-center flex-1 w-full">
             <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#4A4A45', fontSize: 'clamp(1.375rem, 3.5vw, 2.5rem)' }} className="mb-3">
               Ready to See It for Yourself?
             </h2>
@@ -155,7 +155,7 @@ export default function Home() {
             <Link
               to="/contact"
               style={{ backgroundColor: '#E8A838', color: '#2C2C2A', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 18 }}
-              className="inline-block px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
+              className="block w-full md:inline-block md:w-auto px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
             >
               Schedule a Tour
             </Link>
@@ -163,7 +163,7 @@ export default function Home() {
           {/* Divider */}
           <div style={{ width: 1, alignSelf: 'stretch', backgroundColor: '#e8e8e4', margin: '0 4rem', flexShrink: 0 }} className="hidden md:block" />
           {/* Right: careers */}
-          <div className="text-center flex-1">
+          <div className="text-center flex-1 w-full">
             <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#4A4A45', fontSize: 'clamp(1.375rem, 3.5vw, 2.5rem)' }} className="mb-3">
               Want to Join<br />Our Team?
             </h2>
@@ -173,7 +173,7 @@ export default function Home() {
             <Link
               to="/contact"
               style={{ backgroundColor: '#E8A838', color: '#2C2C2A', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 18 }}
-              className="inline-block px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
+              className="block w-full md:inline-block md:w-auto px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
             >
               Apply Today
             </Link>
