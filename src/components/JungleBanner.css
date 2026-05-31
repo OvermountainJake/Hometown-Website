@@ -77,3 +77,40 @@
 .animal-col:hover .animal-desc {
   opacity: 1;
 }
+
+@media (max-width: 767px) {
+  .animal-banner {
+    padding: 0 0 32px;
+  }
+  .animal-banner-heading {
+    font-size: 1.375rem;
+    padding: 24px 16px 20px;
+  }
+  .animal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 12px;
+    padding: 0 16px;
+    overflow: hidden;
+  }
+  .animal-col {
+    flex: none;
+    width: 100%;
+    padding: 0;
+  }
+  .animal-img-wrap {
+    height: 90px;
+  }
+  .animal-room-name {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .animal-age {
+    font-size: 13px;
+  }
+  .animal-desc {
+    opacity: 1;
+    font-size: 12px;
+    max-width: 100%;
+  }
+}

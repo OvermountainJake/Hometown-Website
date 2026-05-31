@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const links = [
@@ -10,6 +10,7 @@ const links = [
 ]
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -20,6 +21,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    setOpen(false)
     window.scrollTo(0, 0)
   }, [location.pathname])
 
@@ -44,22 +46,17 @@ export default function Navbar() {
               className="object-contain owl-logo"
             />
             <div style={{ alignSelf: 'flex-start', paddingTop: 4 }}>
-              <div
-                style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 28, lineHeight: 1.1 }}
-              >
+              <div style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 28, lineHeight: 1.1 }}>
                 Hometown
               </div>
-              <div
-                style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 20, lineHeight: 1.1, letterSpacing: '0.04em' }}
-                className="uppercase"
-              >
+              <div style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 20, lineHeight: 1.1, letterSpacing: '0.04em' }} className="uppercase">
                 Preschool
               </div>
             </div>
           </Link>
 
-          {/* Nav */}
-          <nav className="flex items-center gap-1" style={{ height: 64 }}>
+          {/* Desktop nav — hidden on mobile */}
+          <nav className="hidden md:flex items-center gap-1" style={{ height: 64 }}>
             {links.map(({ to, label }) => {
               const active = location.pathname === to
               return (
@@ -94,8 +91,53 @@ export default function Navbar() {
               Schedule a Tour
             </Link>
           </nav>
+
+          {/* Mobile hamburger — hidden on desktop */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden flex items-center justify-center"
+            style={{
+              height: 64,
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: 26,
+              color: '#2A9D8F',
+              padding: '0 4px',
+            }}
+            aria-label="Toggle menu"
+          >
+            {open ? '✕' : '☰'}
+          </button>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div
+          className="md:hidden"
+          style={{ background: '#fff', borderTop: '1px solid #e8e8e4', width: '100%' }}
+        >
+          {links.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              style={{
+                display: 'block',
+                padding: '14px 24px',
+                fontFamily: 'Nunito, sans-serif',
+                fontWeight: 700,
+                fontSize: 17,
+                color: '#2A9D8F',
+                textDecoration: 'none',
+                borderBottom: '1px solid #f0f0ee',
+              }}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   )
 }
