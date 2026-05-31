@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Fredoka One', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+}
+
+:root {
+  --teal: #2A9D8F;
+  --teal-dark: #1f7a6e;
+  --charcoal: #3D3D3D;
+  --mint: #8EC5B8;
+  --mauve: #B0A0A8;
+  --amber: #E8A838;
+  --amber-dark: #d4952a;
+  --bg: #FAFAF7;
+  --text: #2C2C2A;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-family: 'Fredoka One', sans-serif;
+  font-weight: 400;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes owl-shake {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(-10deg); }
+  35%  { transform: rotate(9deg); }
+  55%  { transform: rotate(-6deg); }
+  72%  { transform: rotate(4deg); }
+  86%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.owl-logo:hover {
+  animation: owl-shake 0.65s ease-in-out;
+}
