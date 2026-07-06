@@ -5,6 +5,50 @@ const stats = [
   { value: '1', label: 'Kitchen serving homemade meals daily' },
 ]
 
+const traditions = [
+  {
+    title: 'Thanksgiving Dinner',
+    body: "Every November, families gather around long tables for a Thanksgiving meal cooked from scratch in our own kitchen. Children help set the tables and welcome their grown-ups, turning an ordinary school day into a shared celebration of gratitude.",
+    images: [{ src: '/images/event-thanksgiving.jpg', alt: 'Families sharing Thanksgiving dinner at Hometown Preschool' }],
+  },
+  {
+    title: 'Christmas Program',
+    body: "Weeks of practice come together on one joyful night. Our children take the stage to sing for a room full of proud parents, grandparents, and siblings — a little nervous, a lot excited, and unforgettable every single year.",
+    images: [
+      { src: '/images/event-christmas-1.jpg', alt: 'Children performing at the Hometown Preschool Christmas program' },
+      { src: '/images/event-christmas-2.jpg', alt: 'Families watching the Hometown Preschool Christmas program' },
+    ],
+  },
+  {
+    title: '4K Graduation',
+    body: "For our oldest friends, 4K graduation marks a big step toward kindergarten. Caps, certificates, and a few happy tears send them off ready — and remind us just how far they've grown while they've been with us.",
+    images: [{ src: '/images/event-graduation.jpg', alt: '4K graduates at Hometown Preschool' }],
+  },
+]
+
+function TraditionImage({ src, alt, height = 340 }) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden relative w-full"
+      style={{ backgroundColor: '#8EC5B820', minHeight: height }}
+    >
+      <span
+        className="absolute inset-0 flex items-center justify-center text-center px-4"
+        style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 14 }}
+      >
+        Photo coming soon
+      </span>
+      <img
+        src={src}
+        alt={alt}
+        className="w-full object-cover relative"
+        style={{ height, boxShadow: '0 4px 30px rgba(0,0,0,0.1)' }}
+        onError={(e) => { e.target.style.display = 'none' }}
+      />
+    </div>
+  )
+}
+
 export default function About() {
   return (
     <div>
@@ -66,7 +110,7 @@ export default function About() {
             </div>
             <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden" style={{ boxShadow: '0 4px 30px rgba(0,0,0,0.1)' }}>
               <img
-                src="/images/gallery-12.jpg"
+                src="/images/gallery-8.jpg"
                 alt="Children playing at Hometown Preschool"
                 className="w-full object-cover"
                 style={{ height: 380 }}
@@ -77,8 +121,52 @@ export default function About() {
         </div>
       </section>
 
+      {/* Traditions */}
+      <section style={{ backgroundColor: '#FAFAF7' }} className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)' }} className="mb-4">
+              The Moments We Look Forward To
+            </h2>
+            <p style={{ color: '#555', fontSize: 17, lineHeight: 1.7, maxWidth: 640 }} className="mx-auto">
+              A few traditions bring our whole community together year after year.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-16">
+            {traditions.map(({ title, body, images }, i) => (
+              <div
+                key={title}
+                className={`flex flex-col gap-8 lg:gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+              >
+                <div className="w-full lg:w-1/2">
+                  {images.length === 1 ? (
+                    <TraditionImage src={images[0].src} alt={images[0].alt} height={380} />
+                  ) : (
+                    <div className="grid grid-cols-2 gap-4">
+                      {images.map((img) => (
+                        <TraditionImage key={img.src} src={img.src} alt={img.alt} height={260} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="w-full lg:w-1/2">
+                  <h3
+                    style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', borderLeft: '4px solid #2A9D8F', paddingLeft: 16 }}
+                    className="mb-4"
+                  >
+                    {title}
+                  </h3>
+                  <p style={{ color: '#555', fontSize: 16, lineHeight: 1.8 }}>{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section style={{ backgroundColor: '#FAFAF7' }} className="py-16">
+      <section style={{ backgroundColor: '#fff' }} className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map(({ value, label }) => (
