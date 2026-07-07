@@ -34,7 +34,7 @@ export default function Home() {
           <img
             src="/images/hero-kids.png"
             alt="Two children at Hometown Preschool"
-            className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
           {/* Gradient blend: photo fades into teal on the right edge */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, rgba(142,197,184,0.55) 85%, #8EC5B8 100%)' }} />
