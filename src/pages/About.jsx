@@ -26,10 +26,10 @@ const traditions = [
   },
 ]
 
-function TraditionImage({ src, alt, height = 340 }) {
+function TraditionImage({ src, alt, height = 340, zoomOnHover = false }) {
   return (
     <div
-      className="rounded-2xl overflow-hidden relative w-full"
+      className={`rounded-2xl overflow-hidden relative w-full${zoomOnHover ? ' transition-transform duration-300 ease-out hover:scale-110 hover:z-10 hover:shadow-xl cursor-pointer' : ''}`}
       style={{ backgroundColor: '#8EC5B820', minHeight: height }}
     >
       <span
@@ -72,7 +72,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {[1, 2, 3, 4, 5].map((n) => (
-              <TraditionImage key={n} src={`/images/hero-${n}.jpg`} alt="" height={200} />
+              <TraditionImage key={n} src={`/images/hero-${n}.jpg`} alt="" height={200} zoomOnHover />
             ))}
           </div>
         </div>
