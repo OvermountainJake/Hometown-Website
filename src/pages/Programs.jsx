@@ -139,7 +139,7 @@ export default function Programs() {
                       style={{ width: 'clamp(120px, 22vw, 170px)', height: 'clamp(120px, 22vw, 170px)', objectFit: 'contain' }}
                     />
                     <span
-                      style={{ color: prog.color === '#3D3D3D' ? '#555' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                      style={{ color: '#555', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
                     >
                       Photo coming soon
                     </span>
@@ -156,12 +156,12 @@ export default function Programs() {
                     />
                     <div>
                       <h2
-                        style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: prog.color === '#3D3D3D' ? '#2C2C2A' : prog.color, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.1 }}
+                        style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.1 }}
                       >
                         {prog.name}
                       </h2>
                       <p
-                        style={{ color: prog.color === '#3D3D3D' ? '#666' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 4 }}
+                        style={{ color: '#666', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 4 }}
                       >
                         {prog.ages}
                       </p>
@@ -175,7 +175,7 @@ export default function Programs() {
                       <li key={b} className="flex items-start gap-3" style={{ fontSize: 15, color: '#444', lineHeight: 1.5 }}>
                         <span
                           className="flex items-center justify-center rounded-full flex-shrink-0"
-                          style={{ width: 22, height: 22, marginTop: 1, backgroundColor: prog.color + '22', color: prog.color === '#3D3D3D' ? '#555' : prog.color, fontSize: 12, fontWeight: 800 }}
+                          style={{ width: 22, height: 22, marginTop: 1, backgroundColor: prog.color + '22', color: '#555', fontSize: 12, fontWeight: 800 }}
                         >
                           ✓
                         </span>
