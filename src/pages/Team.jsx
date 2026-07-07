@@ -45,8 +45,8 @@ export default function Team() {
   return (
     <div>
       {/* Hero */}
-      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center flex items-center justify-center min-h-[320px]">
+        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(2rem, 5vw, 3.25rem)' }} className="mb-4">
             Meet Our Team
           </h1>
