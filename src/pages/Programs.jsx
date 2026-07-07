@@ -94,7 +94,7 @@ export default function Programs() {
   useEffect(() => {
     if (!hash) return
     const el = document.querySelector(hash)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }, [hash])
 
   return (
