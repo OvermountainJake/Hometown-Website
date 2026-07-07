@@ -32,9 +32,9 @@ export default function Home() {
         {/* Left: photo */}
         <div className="relative w-full lg:w-1/2 flex min-h-[300px] lg:min-h-[480px]">
           <img
-            src="/images/classrooms/badgers-photo.png"
-            alt="Hometown Preschool classroom"
-            className="absolute inset-0 w-full h-full object-cover object-[center_88%] lg:object-[center_78%]"
+            src="/images/hero-kids.png"
+            alt="Two children at Hometown Preschool"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
           />
           {/* Gradient blend: photo fades into teal on the right edge */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, rgba(142,197,184,0.55) 85%, #8EC5B8 100%)' }} />
