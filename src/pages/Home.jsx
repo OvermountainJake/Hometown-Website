@@ -29,70 +29,42 @@ export default function Home() {
       {/* Combined hero + values */}
       <section className="flex flex-col lg:flex-row" style={{ minHeight: 'auto' }}>
 
-        {/* Left: photo + headline */}
-        <div className="relative w-full lg:w-1/2 flex" style={{ minHeight: 480 }}>
+        {/* Left: photo */}
+        <div className="relative w-full lg:w-1/2 flex min-h-[300px] lg:min-h-[480px]">
           <img
             src="/images/classrooms/badgers-photo.png"
             alt="Hometown Preschool classroom"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: 'center 70%' }}
+            className="absolute inset-0 w-full h-full object-cover object-[center_88%] lg:object-[center_78%]"
           />
-          {/* Dark overlay for text legibility */}
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(25, 38, 32, 0.48)' }} />
           {/* Gradient blend: photo fades into teal on the right edge */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 70%, rgba(142,197,184,0.6) 85%, #8EC5B8 100%)' }} />
-          <div className="relative z-10 flex flex-col justify-end px-4 lg:px-14 pt-10 lg:pt-16 pb-8 lg:pb-14">
-            <h1
-              style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 4vw, 3.5rem)', lineHeight: 1.15, textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}
-              className="mb-4"
-            >
-              A Place That Feels Like Home
-            </h1>
-            <p
-              style={{ color: 'rgba(255,255,255,0.90)', fontSize: 'clamp(0.875rem, 1.6vw, 1.15rem)', lineHeight: 1.7, textShadow: '0 1px 8px rgba(0,0,0,0.25)', maxWidth: 400 }}
-              className="mb-8"
-            >
-              Serving Verona families since 2003 — where every child is known, loved, and celebrated.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                style={{ backgroundColor: '#E8A838', color: '#2C2C2A', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 19 }}
-                className="px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
-              >
-                Schedule a Tour
-              </Link>
-            </div>
-          </div>
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, rgba(142,197,184,0.55) 85%, #8EC5B8 100%)' }} />
         </div>
 
-        {/* Right: teal + value cards */}
+        {/* Right: teal + headline + CTA */}
         <div
-          className="w-full lg:w-1/2 flex flex-col justify-center px-4 lg:px-12 py-8 lg:py-16"
+          className="w-full lg:w-1/2 flex flex-col justify-center px-4 lg:px-14 py-12 lg:py-16"
           style={{ background: 'linear-gradient(to right, #8EC5B8, #00C9B1)' }}
         >
-          <h2
-            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.375rem, 3vw, 2.6rem)', marginBottom: 28 }}
+          <h1
+            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
+            className="mb-4"
           >
-            More Than Childcare — It's Family
-          </h2>
-          <div>
-            {whyCards.map(({ title, desc }, i) => (
-              <div
-                key={title}
-                style={{
-                  borderTop: '1px solid rgba(255,255,255,0.25)',
-                  paddingTop: 18,
-                  paddingBottom: 18,
-                  borderBottom: i === whyCards.length - 1 ? '1px solid rgba(255,255,255,0.25)' : 'none',
-                }}
-              >
-                <div style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 24, marginBottom: 4 }}>
-                  {title}
-                </div>
-                <p style={{ fontFamily: 'Nunito, sans-serif', color: 'rgba(255,255,255,0.80)', fontSize: 16, lineHeight: 1.55 }}>{desc}</p>
-              </div>
-            ))}
+            A Place That Feels Like Home
+          </h1>
+          <p
+            style={{ color: 'rgba(255,255,255,0.92)', fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)', lineHeight: 1.7, maxWidth: 440 }}
+            className="mb-8"
+          >
+            Serving Verona families since 2003 — where every child is known, loved, and celebrated.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              style={{ backgroundColor: '#E8A838', color: '#2C2C2A', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 19 }}
+              className="px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
+            >
+              Schedule a Tour
+            </Link>
           </div>
         </div>
       </section>
@@ -122,20 +94,25 @@ export default function Home() {
       {/* Programs preview — jungle banner */}
       <JungleBanner />
 
-      {/* Feels Like Home */}
-      <section style={{ background: 'linear-gradient(to right, #8EC5B8, #00C9B1)' }} className="py-10 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* More Than Childcare — values */}
+      <section style={{ background: 'linear-gradient(to right, #8EC5B8, #00C9B1)' }} className="py-14 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', lineHeight: 1.2 }}
-            className="mb-5"
+            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)', lineHeight: 1.2 }}
+            className="text-center mb-10 md:mb-14"
           >
-            A Place That Actually Feels Like Home
+            More Than Childcare — It's Family
           </h2>
-          <p
-            style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 500, color: '#fff', fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', lineHeight: 1.75 }}
-          >
-            Kids spend more time here than almost anywhere else — so we treat this place like home. Our staff treat every child like their own, and families tell us they feel it the moment they walk in the door. Parents head to work knowing their kids are safe, cared for, and genuinely loved.
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyCards.map(({ title, desc }) => (
+              <div key={title} style={{ borderTop: '3px solid rgba(255,255,255,0.45)', paddingTop: 16 }}>
+                <div style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 22, marginBottom: 8, lineHeight: 1.2 }}>
+                  {title}
+                </div>
+                <p style={{ fontFamily: 'Nunito, sans-serif', color: 'rgba(255,255,255,0.85)', fontSize: 16, lineHeight: 1.6 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
