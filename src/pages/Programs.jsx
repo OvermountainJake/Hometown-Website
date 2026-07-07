@@ -100,7 +100,7 @@ export default function Programs() {
   return (
     <div>
       {/* Hero */}
-      <section style={{ backgroundColor: '#2A9D8F' }} className="py-20 text-center">
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(2rem, 5vw, 3.25rem)' }} className="mb-4">
             A Program for Every Child

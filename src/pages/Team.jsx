@@ -45,12 +45,12 @@ export default function Team() {
   return (
     <div>
       {/* Hero */}
-      <section style={{ backgroundColor: '#FAFAF7', borderBottom: '1px solid #e8e8e4' }} className="py-20 text-center">
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(2rem, 5vw, 3.25rem)' }} className="mb-4">
+          <h1 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(2rem, 5vw, 3.25rem)' }} className="mb-4">
             Meet Our Team
           </h1>
-          <p style={{ color: '#666', fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.7 }}>
+          <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: 1.7 }}>
             Dedicated, caring, patient, and educated — our staff are what make Hometown Preschool feel like home.
           </p>
         </div>
