@@ -29,7 +29,7 @@ export default function Navbar() {
     <header
       style={{
         background: '#FAFAF7',
-        borderBottom: '5px solid #2A9D8F',
+        borderBottom: '5px solid #E8A838',
         boxShadow: scrolled ? '0 2px 12px rgba(0,0,0,0.15)' : 'none',
         overflow: 'visible',
       }}
