@@ -123,39 +123,45 @@ export default function Programs() {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-center`}>
-                {/* Photo */}
+                {/* Photo placeholder featuring the animal icon */}
                 <div className="w-full lg:w-1/2 flex-shrink-0">
                   <div
-                    className="rounded-2xl overflow-hidden"
-                    style={{ borderLeft: isEven ? `5px solid ${prog.color}` : 'none', borderRight: !isEven ? `5px solid ${prog.color}` : 'none' }}
+                    className="rounded-[2rem] flex flex-col items-center justify-center gap-5 px-6"
+                    style={{
+                      backgroundColor: prog.color + '14',
+                      border: `2px dashed ${prog.color}55`,
+                      minHeight: 360,
+                    }}
                   >
                     <img
-                      src={prog.photo}
+                      src={prog.illustration}
                       alt={prog.name}
-                      className="w-full object-cover"
-                      style={{ height: 380 }}
-                      onError={(e) => {
-                        e.target.src = prog.illustration
-                        e.target.style.objectFit = 'contain'
-                        e.target.style.padding = '24px'
-                        e.target.style.backgroundColor = prog.color + '15'
-                      }}
+                      style={{ width: 'clamp(120px, 22vw, 170px)', height: 'clamp(120px, 22vw, 170px)', objectFit: 'contain' }}
                     />
+                    <span
+                      style={{ color: prog.color === '#3D3D3D' ? '#555' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                    >
+                      Photo coming soon
+                    </span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <img
+                      src={prog.illustration}
+                      alt=""
+                      style={{ width: 44, height: 44, objectFit: 'contain', flexShrink: 0 }}
+                    />
                     <span
-                      className="px-3 py-1 rounded-full text-sm font-semibold"
-                      style={{ backgroundColor: prog.color + '20', color: prog.color === '#3D3D3D' ? '#555' : prog.color, fontFamily: 'Nunito, sans-serif' }}
+                      style={{ color: prog.color === '#3D3D3D' ? '#666' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1.5, textTransform: 'uppercase' }}
                     >
                       {prog.ages}
                     </span>
                   </div>
                   <h2
-                    style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', borderLeft: `4px solid ${prog.color}`, paddingLeft: 16 }}
+                    style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: prog.color === '#3D3D3D' ? '#2C2C2A' : prog.color, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
                     className="mb-4"
                   >
                     {prog.name}
@@ -163,10 +169,15 @@ export default function Programs() {
                   <p style={{ color: '#555', fontSize: 16, lineHeight: 1.75 }} className="mb-6">
                     {prog.description}
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {prog.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2" style={{ fontSize: 15, color: '#444' }}>
-                        <span style={{ color: prog.color, marginTop: 3, flexShrink: 0 }}>✓</span>
+                      <li key={b} className="flex items-start gap-3" style={{ fontSize: 15, color: '#444', lineHeight: 1.5 }}>
+                        <span
+                          className="flex items-center justify-center rounded-full flex-shrink-0"
+                          style={{ width: 22, height: 22, marginTop: 1, backgroundColor: prog.color + '22', color: prog.color === '#3D3D3D' ? '#555' : prog.color, fontSize: 12, fontWeight: 800 }}
+                        >
+                          ✓
+                        </span>
                         {b}
                       </li>
                     ))}
