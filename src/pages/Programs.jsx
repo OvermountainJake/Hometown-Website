@@ -148,24 +148,24 @@ export default function Programs() {
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-3 mb-1">
                     <img
                       src={prog.illustration}
                       alt=""
-                      style={{ width: 44, height: 44, objectFit: 'contain', flexShrink: 0 }}
+                      style={{ width: 52, height: 52, objectFit: 'contain', flexShrink: 0 }}
                     />
-                    <span
-                      style={{ color: prog.color === '#3D3D3D' ? '#666' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1.5, textTransform: 'uppercase' }}
+                    <h2
+                      style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: prog.color === '#3D3D3D' ? '#2C2C2A' : prog.color, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.1 }}
                     >
-                      {prog.ages}
-                    </span>
+                      {prog.name}
+                    </h2>
                   </div>
-                  <h2
-                    style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: prog.color === '#3D3D3D' ? '#2C2C2A' : prog.color, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
+                  <p
+                    style={{ color: prog.color === '#3D3D3D' ? '#666' : prog.color, fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1.5, textTransform: 'uppercase' }}
                     className="mb-4"
                   >
-                    {prog.name}
-                  </h2>
+                    {prog.ages}
+                  </p>
                   <p style={{ color: '#555', fontSize: 16, lineHeight: 1.75 }} className="mb-6">
                     {prog.description}
                   </p>
