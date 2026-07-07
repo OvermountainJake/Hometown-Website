@@ -67,7 +67,7 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center flex items-center justify-center min-h-[320px]">
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-6 text-center flex items-center justify-center min-h-[240px]">
         <div className="w-full max-w-2xl mx-auto px-4">
           <h1 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(2rem, 5vw, 3rem)' }} className="mb-3">
             Get in Touch

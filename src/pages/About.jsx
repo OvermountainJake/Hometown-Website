@@ -113,7 +113,7 @@ export default function About() {
   return (
     <div>
       {/* Hero — centered text + placeholder row */}
-      <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 flex items-center justify-center min-h-[320px]">
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-6 flex items-center justify-center min-h-[240px]">
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1
             style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: 1.2 }}
