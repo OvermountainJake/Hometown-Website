@@ -52,31 +52,28 @@ function TraditionImage({ src, alt, height = 340 }) {
 export default function About() {
   return (
     <div>
-      {/* Hero — split layout */}
-      <section style={{ minHeight: '60vh', display: 'flex' }} className="flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 overflow-hidden" style={{ minHeight: 360 }}>
-          <img
-            src="/images/gallery-7.jpg"
-            alt="Children at Hometown Preschool"
-            className="w-full h-full object-cover"
-            style={{ minHeight: 360 }}
-            onError={(e) => { e.target.style.backgroundColor = '#8EC5B820'; e.target.alt = '' }}
-          />
+      {/* Hero — centered text + placeholder row */}
+      <section style={{ backgroundColor: '#2A9D8F' }} className="py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1
+            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.875rem, 4vw, 3rem)', lineHeight: 1.2 }}
+            className="mb-4"
+          >
+            Where Little Hearts Grow Big Dreams
+          </h1>
+          <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 18, lineHeight: 1.7 }}>
+            For over 20 years, Hometown Preschool has been more than a childcare center — it's been a home.
+          </p>
         </div>
-        <div
-          className="w-full lg:w-1/2 flex items-center px-10 py-16"
-          style={{ backgroundColor: '#2A9D8F' }}
-        >
-          <div>
-            <h1
-              style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1.2 }}
-              className="mb-4"
-            >
-              Where Little Hearts Grow Big Dreams
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 17, lineHeight: 1.7 }}>
-              For over 20 years, Hometown Preschool has been more than a childcare center — it's been a home.
-            </p>
+      </section>
+
+      {/* Hero photo row */}
+      <section style={{ backgroundColor: '#fff' }} className="py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <TraditionImage key={n} src={`/images/hero-${n}.jpg`} alt="" height={200} />
+            ))}
           </div>
         </div>
       </section>
