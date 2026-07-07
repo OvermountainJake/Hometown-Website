@@ -122,21 +122,20 @@ export default function Home() {
       {/* Programs preview — jungle banner */}
       <JungleBanner />
 
-      {/* Testimonial */}
+      {/* Feels Like Home */}
       <section style={{ background: 'linear-gradient(to right, #8EC5B8, #00C9B1)' }} className="py-10 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div style={{ fontFamily: 'Nunito, sans-serif', fontSize: 80, color: 'rgba(255,255,255,0.25)', lineHeight: 0.5 }} className="mb-6">
-            "
-          </div>
-          <blockquote
-            style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 700, color: '#fff', fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', lineHeight: 1.7 }}
-            className="mb-6"
+          <h2
+            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', lineHeight: 1.2 }}
+            className="mb-5"
           >
-            From the moment we walked through the doors, we knew Hometown Preschool was something special. Our daughters have flourished here, surrounded by teachers who truly care about their happiness and growth.
-          </blockquote>
-          <cite style={{ color: 'rgba(255,255,255,0.8)', fontStyle: 'normal', fontSize: 15, fontFamily: 'Nunito, sans-serif', fontWeight: 600 }}>
-            — The Colstad Family
-          </cite>
+            A Place That Actually Feels Like Home
+          </h2>
+          <p
+            style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 500, color: '#fff', fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', lineHeight: 1.75 }}
+          >
+            Kids spend more time here than almost anywhere else — so we treat this place like home. Our staff treat every child like their own, and families tell us they feel it the moment they walk in the door. Parents head to work knowing their kids are safe, cared for, and genuinely loved.
+          </p>
         </div>
       </section>
 
