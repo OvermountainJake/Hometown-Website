@@ -53,10 +53,10 @@ export default function About() {
   return (
     <div>
       {/* Hero — centered text + placeholder row */}
-      <section style={{ backgroundColor: '#2A9D8F' }} className="py-20">
+      <section style={{ background: 'linear-gradient(to bottom, #6b7280, #1f2937)' }} className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1
-            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1.875rem, 4vw, 3rem)', lineHeight: 1.2 }}
+            style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#fff', fontSize: 'clamp(1rem, 4.4vw, 3rem)', lineHeight: 1.2, whiteSpace: 'nowrap' }}
             className="mb-4"
           >
             Where Little Hearts Grow Big Dreams
