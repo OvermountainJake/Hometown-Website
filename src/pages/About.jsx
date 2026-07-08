@@ -108,7 +108,7 @@ function Polaroid({ src, alt, rotate = 0, height = 320 }) {
 }
 
 export default function About() {
-  const [hovered, setHovered] = useState(null)
+  const [lightbox, setLightbox] = useState(null)
 
   return (
     <div>
@@ -123,7 +123,7 @@ export default function About() {
           </h1>
           <div className="max-w-2xl mx-auto">
             <p
-              style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: '#E8A838', fontSize: 14 }}
+              style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 800, letterSpacing: 1, textTransform: 'uppercase', color: '#E8A838', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
               className="mb-3"
             >
               Our Mission
@@ -151,8 +151,7 @@ export default function About() {
               <div
                 key={n}
                 className="cursor-pointer"
-                onMouseEnter={() => setHovered(n)}
-                onMouseLeave={() => setHovered(null)}
+                onClick={() => setLightbox(n)}
               >
                 <TraditionImage src={`/images/hero-${n}.jpg`} alt="" height={200} />
               </div>
@@ -161,11 +160,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* Hover lightbox — enlarged photo centered on screen */}
+      {/* Lightbox — click a photo to enlarge, click backdrop or × to close */}
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none transition-opacity duration-300"
-        style={{ backgroundColor: 'rgba(0,0,0,0.65)', opacity: hovered ? 1 : 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300"
+        style={{ backgroundColor: 'rgba(0,0,0,0.65)', opacity: lightbox ? 1 : 0, pointerEvents: lightbox ? 'auto' : 'none' }}
+        onClick={() => setLightbox(null)}
       >
+        <button
+          onClick={() => setLightbox(null)}
+          aria-label="Close"
+          className="absolute flex items-center justify-center rounded-full hover:opacity-80 transition-opacity"
+          style={{ top: 20, right: 24, width: 44, height: 44, color: '#fff', fontSize: 28, lineHeight: 1, backgroundColor: 'rgba(255,255,255,0.15)' }}
+        >
+          ×
+        </button>
         <div
           className="rounded-2xl overflow-hidden relative transition-transform duration-300 ease-out"
           style={{
@@ -173,8 +181,9 @@ export default function About() {
             height: 'min(500px, 70vh)',
             backgroundColor: '#8EC5B820',
             boxShadow: '0 25px 70px rgba(0,0,0,0.55)',
-            transform: hovered ? 'scale(1)' : 'scale(0.85)',
+            transform: lightbox ? 'scale(1)' : 'scale(0.85)',
           }}
+          onClick={(e) => e.stopPropagation()}
         >
           <span
             className="absolute inset-0 flex items-center justify-center text-center px-4"
@@ -182,9 +191,9 @@ export default function About() {
           >
             Photo coming soon
           </span>
-          {hovered && (
+          {lightbox && (
             <img
-              src={`/images/hero-${hovered}.jpg`}
+              src={`/images/hero-${lightbox}.jpg`}
               alt=""
               className="w-full h-full object-cover relative"
               onError={(e) => { e.target.style.display = 'none' }}
