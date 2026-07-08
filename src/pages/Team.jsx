@@ -1,4 +1,5 @@
-import TeamCard from '../components/TeamCard'
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 
 const leadership = [
   {
@@ -18,30 +19,93 @@ const leadership = [
   },
 ]
 
-const teachers = [
-  { name: 'Ms. Jenn', since: '2022', credential: "Associate's in Early Childhood Education" },
-  { name: 'Ms. Jenny', since: 'January 2025', credential: 'Third year of teaching early childhood' },
-  { name: 'Ms. Kari', since: '2021', credential: '13th year of teaching early childhood' },
-  { name: 'Ms. Kathy', since: '2019', credential: 'BS in Elementary Education' },
-  { name: 'Ms. Brittney', since: '2017', credential: 'Graduated BYU–Idaho 2014; over a decade with children' },
-  { name: 'Ms. Mailia', since: '2018', credential: 'BS in Elementary Education, UW–Madison; 20 years with 3–4 year olds' },
-  { name: 'Ms. Selena', since: 'early 2025', credential: 'Studied at Madison College' },
-  { name: 'Ms. Eowyn', since: '2023', credential: null },
-  { name: 'Mr. Jake', since: '2022', credential: 'Studied at Madison College' },
-  { name: 'Ms. Luba', since: '2025', credential: 'Studied education in Russia' },
-  { name: 'Ms. Mary', since: '2019', credential: null },
-  { name: 'Ms. Kailin', since: '2010', credential: 'ECE studies at Madison College' },
-  { name: 'Ms. Hunter', since: '2025', credential: null },
-  { name: 'Ms. Leah', since: '2020', credential: 'AA in Applied Science, NICC' },
-  { name: 'Ms. Megan', since: '2025', credential: 'BA in History, Loyola University' },
-  { name: 'Ms. Morgan', since: '2025', credential: 'BA in Criminal Justice, Iowa State University' },
+// NOTE: group assignments below are a placeholder distribution.
+const educatorGroups = [
+  {
+    category: 'Infant Care Staff',
+    staff: [
+      { name: 'Ms. Jenn', since: '2022', credential: "Associate's in Early Childhood Education" },
+      { name: 'Ms. Jenny', since: 'January 2025', credential: 'Third year of teaching early childhood' },
+      { name: 'Ms. Kari', since: '2021', credential: '13th year of teaching early childhood' },
+    ],
+  },
+  {
+    category: 'Toddler Care Staff',
+    staff: [
+      { name: 'Ms. Brittney', since: '2017', credential: 'Graduated BYU–Idaho 2014; over a decade with children' },
+      { name: 'Ms. Mailia', since: '2018', credential: 'BS in Elementary Education, UW–Madison; 20 years with 3–4 year olds' },
+      { name: 'Ms. Selena', since: 'early 2025', credential: 'Studied at Madison College' },
+    ],
+  },
+  {
+    category: 'Pre-School Staff',
+    staff: [
+      { name: 'Mr. Jake', since: '2022', credential: 'Studied at Madison College' },
+      { name: 'Ms. Luba', since: '2025', credential: 'Studied education in Russia' },
+      { name: 'Ms. Mary', since: '2019', credential: null },
+    ],
+  },
+  {
+    category: '4K / Wrap Care Staff',
+    staff: [
+      { name: 'Ms. Hunter', since: '2025', credential: null },
+      { name: 'Ms. Leah', since: '2020', credential: 'AA in Applied Science, NICC' },
+      { name: 'Ms. Megan', since: '2025', credential: 'BA in History, Loyola University' },
+    ],
+  },
+  {
+    category: 'Support Teaching Staff',
+    staff: [
+      { name: 'Ms. Kathy', since: '2019', credential: 'BS in Elementary Education' },
+      { name: 'Ms. Eowyn', since: '2023', credential: null },
+      { name: 'Ms. Kailin', since: '2010', credential: 'ECE studies at Madison College' },
+      { name: 'Ms. Morgan', since: '2025', credential: 'BA in Criminal Justice, Iowa State University' },
+      { name: 'Ms. Cat', since: '2024', credential: 'Kitchen Manager — homemade breakfast, lunch & snack daily' },
+    ],
+  },
 ]
 
-const support = [
-  { name: 'Ms. Cat', role: 'Kitchen Manager', since: '2024', note: 'Prepares homemade breakfast, lunch, and afternoon snack daily.' },
-]
+function EducatorGroup({ category, staff, open, onToggle }) {
+  return (
+    <div className="rounded-2xl bg-white overflow-hidden" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+      >
+        <span style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.1rem, 2.2vw, 1.4rem)' }}>
+          {category}
+        </span>
+        <ChevronDown
+          size={22}
+          style={{ color: '#2A9D8F', flexShrink: 0, transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
+        />
+      </button>
+      {open && (
+        <div className="px-6 pb-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+          {staff.map((s) => (
+            <div key={s.name} style={{ borderTop: '1px solid #f0f0ee', paddingTop: 14 }}>
+              <div style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 16, color: '#2C2C2A' }}>
+                {s.name}
+              </div>
+              {s.since && (
+                <div style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 12, marginTop: 1 }}>
+                  Joined Hometown in {s.since}
+                </div>
+              )}
+              {s.credential && (
+                <div style={{ color: '#666', fontSize: 13, lineHeight: 1.5, marginTop: 4 }}>{s.credential}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Team() {
+  const [openGroup, setOpenGroup] = useState(null)
+
   return (
     <div>
       {/* Hero */}
@@ -59,9 +123,6 @@ export default function Team() {
       {/* Leadership */}
       <section style={{ backgroundColor: '#fff' }} className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-10 text-center">
-            Leadership
-          </h2>
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-stretch">
             {/* Horizontal image */}
             <div className="w-full lg:w-[66%]">
@@ -113,46 +174,45 @@ export default function Team() {
       {/* Teachers */}
       <section style={{ backgroundColor: '#FAFAF7' }} className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-8 text-center">
-            Our Teachers
+          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-10 text-center">
+            Our Incredible Educators
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {teachers.map((t) => (
-              <TeamCard key={t.name} {...t} />
-            ))}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+            {/* Dropdowns on the left */}
+            <div className="w-full lg:w-3/5 flex flex-col gap-4">
+              {educatorGroups.map((g, i) => (
+                <EducatorGroup
+                  key={g.category}
+                  {...g}
+                  open={openGroup === i}
+                  onToggle={() => setOpenGroup(openGroup === i ? null : i)}
+                />
+              ))}
+            </div>
+            {/* Image placeholder on the right — fixed size, sticky */}
+            <div className="w-full lg:w-2/5 lg:sticky lg:top-24">
+              <div
+                className="rounded-2xl overflow-hidden relative w-full"
+                style={{ backgroundColor: '#2A9D8F14', aspectRatio: '4 / 5' }}
+              >
+                <span
+                  className="absolute inset-0 flex items-center justify-center text-center px-4"
+                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                >
+                  Photo coming soon
+                </span>
+                <img
+                  src="/images/team-educators.jpg"
+                  alt="Hometown Preschool educators"
+                  className="w-full h-full object-cover relative block"
+                  onError={(e) => { e.target.style.display = 'none' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Support staff */}
-      <section style={{ backgroundColor: '#fff' }} className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-8 text-center">
-            Support Staff
-          </h2>
-          <div className="max-w-md mx-auto">
-            {support.map((s) => (
-              <div
-                key={s.name}
-                className="rounded-2xl p-6 bg-white flex items-start gap-4"
-                style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.07)' }}
-              >
-                <div
-                  className="flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold"
-                  style={{ width: 48, height: 48, backgroundColor: '#E8A838', fontFamily: 'Nunito, sans-serif', fontSize: 18 }}
-                >
-                  {s.name.replace('Ms. ', '').charAt(0)}
-                </div>
-                <div>
-                  <div style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 17, color: '#2C2C2A' }}>{s.name}</div>
-                  <div style={{ color: '#E8A838', fontSize: 13, fontWeight: 600, fontFamily: 'Nunito, sans-serif' }}>{s.role} · Since {s.since}</div>
-                  <p style={{ color: '#666', fontSize: 14, lineHeight: 1.6, marginTop: 6 }}>{s.note}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section style={{ backgroundColor: '#2A9D8F' }} className="py-16 text-center">
