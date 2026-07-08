@@ -55,8 +55,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav — hidden on mobile */}
-          <nav className="hidden md:flex items-center gap-1" style={{ height: 64 }}>
+          {/* Desktop nav — hidden until it comfortably fits */}
+          <nav className="hidden lg:flex items-center gap-1 whitespace-nowrap" style={{ height: 64 }}>
             {links.map(({ to, label }) => {
               const active = location.pathname === to
               return (
@@ -95,7 +95,7 @@ export default function Navbar() {
           {/* Mobile hamburger — hidden on desktop */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden flex items-center justify-center"
+            className="lg:hidden flex items-center justify-center"
             style={{
               height: 64,
               background: 'none',
@@ -115,7 +115,7 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {open && (
         <div
-          className="md:hidden"
+          className="lg:hidden"
           style={{ background: '#fff', borderTop: '1px solid #e8e8e4', width: '100%' }}
         >
           {links.map(({ to, label }) => (

@@ -198,7 +198,7 @@ export default function Home() {
       {/* Info bar */}
       <div style={{ background: '#3D3D3D', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-white">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-10 text-white">
             <div className="flex items-center gap-2">
               <Clock size={18} />
               <span style={{ fontFamily: 'Nunito, sans-serif', fontWeight: 600, fontSize: 15 }}>Mon–Fri, 6:30 AM – 5:30 PM</span>
