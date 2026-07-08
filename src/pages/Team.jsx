@@ -7,14 +7,14 @@ const leadership = [
     bio: 'Originally from Viroqua, WI. Has been part of Hometown Preschool since the day it opened in 2003. Earned her administrator\'s credential in 2006. Passionate about making sure every child has a safe and loving start to their education.',
   },
   {
-    name: 'Ms. Laura',
+    name: 'Ms. Nicole',
     role: 'Assistant Director',
-    bio: 'Brings 30 years of childcare experience to Hometown Preschool. Joined HTP in 2017 as the 3–4 year old classroom teacher. A grandmother figure to many — warm, experienced, and deeply committed to every child\'s growth.',
+    bio: 'A native Madisonian with a BS in Elementary Education from UW–Madison. On her third tour of duty at HTP. Also coaches swim for students with disabilities. Passionate about lifting up people whose voices aren\'t always heard.',
   },
   {
-    name: 'Ms. Nicole',
-    role: 'Administrative Support',
-    bio: 'A native Madisonian with a BS in Elementary Education from UW–Madison. On her third tour of duty at HTP. Also coaches swim for students with disabilities. Passionate about lifting up people whose voices aren\'t always heard.',
+    name: 'Ms. Laura',
+    role: 'Program Coordinator',
+    bio: 'Brings 30 years of childcare experience to Hometown Preschool. Joined HTP in 2017 as the 3–4 year old classroom teacher. A grandmother figure to many — warm, experienced, and deeply committed to every child\'s growth.',
   },
 ]
 
@@ -59,13 +59,52 @@ export default function Team() {
       {/* Leadership */}
       <section style={{ backgroundColor: '#fff' }} className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-8 text-center">
+          <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-10 text-center">
             Leadership
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {leadership.map((person) => (
-              <TeamCard key={person.name} {...person} isLeader />
-            ))}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
+            {/* Horizontal image */}
+            <div className="w-full lg:w-1/2">
+              <div
+                className="rounded-2xl overflow-hidden relative w-full"
+                style={{ backgroundColor: '#2A9D8F14', aspectRatio: '3 / 2' }}
+              >
+                <span
+                  className="absolute inset-0 flex items-center justify-center text-center px-4"
+                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                >
+                  Photo coming soon
+                </span>
+                <img
+                  src="/images/team-leadership.jpg"
+                  alt="Hometown Preschool leadership team"
+                  className="w-full h-full object-cover relative block"
+                  onError={(e) => { e.target.style.display = 'none' }}
+                />
+              </div>
+            </div>
+
+            {/* Stacked leaders */}
+            <div className="w-full lg:w-7/12 flex flex-col">
+              {leadership.map((person, i) => (
+                <div
+                  key={person.name}
+                  style={{
+                    paddingTop: i === 0 ? 0 : 26,
+                    paddingBottom: i === leadership.length - 1 ? 0 : 26,
+                    borderTop: i === 0 ? 'none' : '1px solid #ececea',
+                  }}
+                >
+                  <h3 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)', lineHeight: 1.15 }}>
+                    {person.name}
+                  </h3>
+                  <div style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 12.5, letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 3, marginBottom: 8 }}>
+                    {person.role}
+                  </div>
+                  <p style={{ color: '#555', fontSize: 15.5, lineHeight: 1.7 }}>{person.bio}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
