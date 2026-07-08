@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Clock, Phone, MapPin } from 'lucide-react'
+import { Clock, Phone, MapPin, Paperclip, X } from 'lucide-react'
 import JungleBanner from '../components/JungleBanner'
 
 
@@ -23,7 +24,132 @@ const whyCards = [
   },
 ]
 
+const labelStyle = { fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 14, color: '#3D3D3D', display: 'block', marginBottom: 6 }
+const inputStyle = { width: '100%', padding: '10px 14px', borderRadius: 10, border: '1.5px solid #e0e0db', fontSize: 15, color: '#2C2C2A', fontFamily: 'Inter, sans-serif', backgroundColor: '#fff' }
+
+function ApplyModal({ open, onClose }) {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
+  const [fileName, setFileName] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      setForm({ name: '', phone: '', email: '', message: '' })
+      setFileName('')
+      setSubmitted(false)
+    }
+  }, [open])
+
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300"
+      style={{ backgroundColor: 'rgba(0,0,0,0.6)', opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-lg rounded-2xl bg-white max-h-[90vh] overflow-y-auto"
+        style={{ boxShadow: '0 25px 70px rgba(0,0,0,0.4)' }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+          style={{ top: 14, right: 14, width: 38, height: 38, color: '#666' }}
+        >
+          <X size={20} />
+        </button>
+
+        <div className="p-6 sm:p-8">
+          {submitted ? (
+            <div className="text-center py-6">
+              <div style={{ fontSize: 40 }}>🎉</div>
+              <h3 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2A9D8F', fontSize: 24 }} className="mt-2 mb-2">
+                Application received!
+              </h3>
+              <p style={{ color: '#555', lineHeight: 1.6 }} className="mb-6">
+                Thanks for your interest in joining Hometown Preschool — we'll review it and reach out soon.
+              </p>
+              <button
+                onClick={onClose}
+                style={{ backgroundColor: '#E8A838', color: '#fff', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 16 }}
+                className="px-8 py-3 rounded-full shadow-md hover:opacity-90 transition-opacity"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <>
+              <h3 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-2">
+                Join Our Team
+              </h3>
+              <p style={{ color: '#666', fontSize: 15, lineHeight: 1.6 }} className="mb-6">
+                Tell us about yourself and attach your resume — we'd love to hear from you.
+              </p>
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }} className="space-y-4">
+                <div>
+                  <label htmlFor="ap-name" style={labelStyle}>Full Name *</label>
+                  <input id="ap-name" type="text" required placeholder="Jane Smith" value={form.name} onChange={set('name')} style={inputStyle} />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="ap-phone" style={labelStyle}>Phone</label>
+                    <input id="ap-phone" type="tel" placeholder="(608) 000-0000" value={form.phone} onChange={set('phone')} style={inputStyle} />
+                  </div>
+                  <div>
+                    <label htmlFor="ap-email" style={labelStyle}>Email *</label>
+                    <input id="ap-email" type="email" required placeholder="jane@email.com" value={form.email} onChange={set('email')} style={inputStyle} />
+                  </div>
+                </div>
+                <div>
+                  <label style={labelStyle}>Resume</label>
+                  <label
+                    className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                    style={{ border: '1.5px dashed #cfcfc9', borderRadius: 10, padding: '11px 14px' }}
+                  >
+                    <Paperclip size={18} style={{ color: '#2A9D8F', flexShrink: 0 }} />
+                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: fileName ? '#2C2C2A' : '#999', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {fileName || 'Attach a file (PDF, DOC, DOCX)'}
+                    </span>
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      className="hidden"
+                      onChange={(e) => setFileName(e.target.files[0]?.name || '')}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="ap-message" style={labelStyle}>Message</label>
+                  <textarea
+                    id="ap-message"
+                    rows={4}
+                    placeholder="Tell us a bit about yourself and why you'd like to join…"
+                    value={form.message}
+                    onChange={set('message')}
+                    style={{ ...inputStyle, resize: 'vertical' }}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  style={{ backgroundColor: '#E8A838', color: '#fff', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 17, width: '100%' }}
+                  className="py-3 rounded-full shadow-md hover:opacity-90 transition-opacity"
+                >
+                  Send Application
+                </button>
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
+  const [applyOpen, setApplyOpen] = useState(false)
   return (
     <div>
       {/* Combined hero + values */}
@@ -146,16 +272,18 @@ export default function Home() {
             <p style={{ color: '#666', fontSize: 17, lineHeight: 1.6 }} className="mb-8">
               We're always looking for passionate, caring people to grow with us.
             </p>
-            <Link
-              to="/contact"
+            <button
+              onClick={() => setApplyOpen(true)}
               style={{ backgroundColor: '#E8A838', color: '#2C2C2A', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 18 }}
               className="block w-full md:inline-block md:w-auto px-10 py-4 rounded-full shadow-lg hover:opacity-90 transition-opacity"
             >
               Apply Today
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
+      <ApplyModal open={applyOpen} onClose={() => setApplyOpen(false)} />
     </div>
   )
 }
