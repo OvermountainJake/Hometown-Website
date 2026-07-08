@@ -62,12 +62,12 @@ export default function Team() {
           <h2 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }} className="mb-10 text-center">
             Leadership
           </h2>
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-stretch">
             {/* Horizontal image */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-[66%]">
               <div
-                className="rounded-2xl overflow-hidden relative w-full"
-                style={{ backgroundColor: '#2A9D8F14', aspectRatio: '3 / 2' }}
+                className="rounded-2xl overflow-hidden relative w-full h-full"
+                style={{ backgroundColor: '#2A9D8F14', minHeight: 340 }}
               >
                 <span
                   className="absolute inset-0 flex items-center justify-center text-center px-4"
@@ -79,6 +79,7 @@ export default function Team() {
                   src="/images/team-leadership.jpg"
                   alt="Hometown Preschool leadership team"
                   className="w-full h-full object-cover relative block"
+                  style={{ minHeight: 340 }}
                   onError={(e) => { e.target.style.display = 'none' }}
                 />
               </div>
@@ -90,18 +91,18 @@ export default function Team() {
                 <div
                   key={person.name}
                   style={{
-                    paddingTop: i === 0 ? 0 : 26,
-                    paddingBottom: i === leadership.length - 1 ? 0 : 26,
+                    paddingTop: i === 0 ? 0 : 18,
+                    paddingBottom: i === leadership.length - 1 ? 0 : 18,
                     borderTop: i === 0 ? 'none' : '1px solid #ececea',
                   }}
                 >
                   <h3 style={{ fontFamily: 'Fredoka One, sans-serif', fontWeight: 400, color: '#2C2C2A', fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)', lineHeight: 1.15 }}>
                     {person.name}
                   </h3>
-                  <div style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 12.5, letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 3, marginBottom: 8 }}>
+                  <div style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 12.5, letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 3, marginBottom: 6 }}>
                     {person.role}
                   </div>
-                  <p style={{ color: '#555', fontSize: 15.5, lineHeight: 1.7 }}>{person.bio}</p>
+                  <p style={{ color: '#555', fontSize: 15, lineHeight: 1.6 }}>{person.bio}</p>
                 </div>
               ))}
             </div>
