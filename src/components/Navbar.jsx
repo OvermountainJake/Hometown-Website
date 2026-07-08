@@ -49,7 +49,7 @@ export default function Navbar() {
               <div style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 28, lineHeight: 1.1 }}>
                 Hometown
               </div>
-              <div style={{ fontFamily: 'Fredoka One, sans-serif', color: '#2A9D8F', fontWeight: 400, fontSize: 20, lineHeight: 1.1, letterSpacing: '0.04em' }} className="uppercase">
+              <div style={{ fontFamily: 'Fredoka One, sans-serif', color: '#4A4A45', fontWeight: 400, fontSize: 20, lineHeight: 1.1, letterSpacing: '0.04em' }} className="uppercase">
                 Preschool
               </div>
             </div>

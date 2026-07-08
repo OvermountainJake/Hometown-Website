@@ -28,24 +28,24 @@ const traditions = [
   {
     title: 'Thanksgiving Dinner',
     body: "Every November, families gather around long tables for a Thanksgiving meal cooked from scratch in our own kitchen. Children help set the tables and welcome their grown-ups, turning an ordinary school day into a shared celebration of gratitude.",
-    images: [{ src: '/images/event-thanksgiving.jpg', alt: 'Families sharing Thanksgiving dinner at Hometown Preschool' }],
+    images: [{ src: '/images/event-thanksgiving.jpg', alt: 'Families sharing Thanksgiving dinner at Hometown Preschool', n: 7 }],
   },
   {
     title: 'Christmas Program',
     body: "Weeks of practice come together on one joyful night. Our children take the stage to sing for a room full of proud parents, grandparents, and siblings — a little nervous, a lot excited, and unforgettable every single year.",
     images: [
-      { src: '/images/event-christmas-1.jpg', alt: 'Children performing at the Hometown Preschool Christmas program' },
-      { src: '/images/event-christmas-2.jpg', alt: 'Families watching the Hometown Preschool Christmas program' },
+      { src: '/images/event-christmas-1.jpg', alt: 'Children performing at the Hometown Preschool Christmas program', n: 8 },
+      { src: '/images/event-christmas-2.jpg', alt: 'Families watching the Hometown Preschool Christmas program', n: 9 },
     ],
   },
   {
     title: '4K Graduation',
     body: "For our oldest friends, 4K graduation marks a big step toward kindergarten. Caps, certificates, and a few happy tears send them off ready — and remind us just how far they've grown while they've been with us.",
-    images: [{ src: '/images/event-graduation.jpg', alt: '4K graduates at Hometown Preschool' }],
+    images: [{ src: '/images/event-graduation.jpg', alt: '4K graduates at Hometown Preschool', n: 10 }],
   },
 ]
 
-function TraditionImage({ src, alt, height = 340 }) {
+function TraditionImage({ src, alt, height = 340, label = 'Photo coming soon' }) {
   return (
     <div
       className="rounded-2xl overflow-hidden relative w-full"
@@ -53,9 +53,9 @@ function TraditionImage({ src, alt, height = 340 }) {
     >
       <span
         className="absolute inset-0 flex items-center justify-center text-center px-4"
-        style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 14 }}
+        style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 14, letterSpacing: 1 }}
       >
-        Photo coming soon
+        {label}
       </span>
       <img
         src={src}
@@ -68,7 +68,7 @@ function TraditionImage({ src, alt, height = 340 }) {
   )
 }
 
-function Polaroid({ src, alt, rotate = 0, height = 320 }) {
+function Polaroid({ src, alt, rotate = 0, height = 320, label = 'Photo coming soon' }) {
   return (
     <div
       className="relative bg-white transition-transform duration-300 hover:!rotate-0 hover:z-10"
@@ -91,9 +91,9 @@ function Polaroid({ src, alt, rotate = 0, height = 320 }) {
       >
         <span
           className="absolute inset-0 flex items-center justify-center text-center px-4"
-          style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13 }}
+          style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1 }}
         >
-          Photo coming soon
+          {label}
         </span>
         <img
           src={src}
@@ -153,7 +153,7 @@ export default function About() {
                 className="cursor-pointer"
                 onClick={() => setLightbox(n)}
               >
-                <TraditionImage src={`/images/hero-${n}.jpg`} alt="" height={200} />
+                <TraditionImage src={`/images/hero-${n}.jpg`} alt="" height={200} label={`IMAGE ${n}`} />
               </div>
             ))}
           </div>
@@ -187,9 +187,9 @@ export default function About() {
         >
           <span
             className="absolute inset-0 flex items-center justify-center text-center px-4"
-            style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 18 }}
+            style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 18, letterSpacing: 1 }}
           >
-            Photo coming soon
+            {lightbox ? `IMAGE ${lightbox}` : 'Photo coming soon'}
           </span>
           {lightbox && (
             <img
@@ -263,15 +263,15 @@ export default function About() {
                 <div className="w-full lg:w-1/2 flex justify-center">
                   {images.length === 1 ? (
                     <div className="w-full max-w-sm">
-                      <Polaroid src={images[0].src} alt={images[0].alt} rotate={i % 2 === 1 ? 2.5 : -2.5} height={340} />
+                      <Polaroid src={images[0].src} alt={images[0].alt} rotate={i % 2 === 1 ? 2.5 : -2.5} height={340} label={`IMAGE ${images[0].n}`} />
                     </div>
                   ) : (
                     <div className="flex justify-center items-start">
                       <div className="w-40 sm:w-48 md:w-56" style={{ marginRight: -20, zIndex: 2 }}>
-                        <Polaroid src={images[0].src} alt={images[0].alt} rotate={-5} height={200} />
+                        <Polaroid src={images[0].src} alt={images[0].alt} rotate={-5} height={200} label={`IMAGE ${images[0].n}`} />
                       </div>
                       <div className="w-40 sm:w-48 md:w-56" style={{ marginTop: 40, zIndex: 1 }}>
-                        <Polaroid src={images[1].src} alt={images[1].alt} rotate={5} height={200} />
+                        <Polaroid src={images[1].src} alt={images[1].alt} rotate={5} height={200} label={`IMAGE ${images[1].n}`} />
                       </div>
                     </div>
                   )}

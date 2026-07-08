@@ -132,9 +132,9 @@ export default function Team() {
               >
                 <span
                   className="absolute inset-0 flex items-center justify-center text-center px-4"
-                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
                 >
-                  Photo coming soon
+                  IMAGE 16
                 </span>
                 <img
                   src="/images/team-leadership.jpg"
@@ -197,9 +197,9 @@ export default function Team() {
               >
                 <span
                   className="absolute inset-0 flex items-center justify-center text-center px-4"
-                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                  style={{ color: '#2A9D8F', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
                 >
-                  Photo coming soon
+                  IMAGE 17
                 </span>
                 <img
                   src="/images/team-educators.jpg"

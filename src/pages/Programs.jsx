@@ -139,9 +139,9 @@ export default function Programs() {
                       style={{ width: 'clamp(120px, 22vw, 170px)', height: 'clamp(120px, 22vw, 170px)', objectFit: 'contain' }}
                     />
                     <span
-                      style={{ color: '#555', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
+                      style={{ color: '#555', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
                     >
-                      Photo coming soon
+                      IMAGE {11 + i}
                     </span>
                   </div>
                 </div>
