@@ -36,7 +36,7 @@ const programs = [
   {
     slug: 'owls',
     name: 'Owls',
-    ages: '3–5 Years',
+    ages: '3–4 Years',
     photo: '/images/about-1.jpg',
     illustration: '/images/classrooms/owls.svg',
     color: '#8EC5B8',
@@ -81,6 +81,7 @@ const programs = [
       'Active play and outdoor adventures',
       'Arts, crafts, and special projects',
       'Full-day care during school breaks and summer',
+      'Summer camp with weekly themes and field trips',
     ],
   },
 ]

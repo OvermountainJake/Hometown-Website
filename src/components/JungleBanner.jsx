@@ -25,7 +25,7 @@ const animals = [
     src: '/images/classrooms/owls.svg',
     alt: 'Owls',
     name: 'Owls',
-    age: '3 – 5 years',
+    age: '3 – 4 years',
     desc: 'Kindergarten readiness through literacy, STEM, social-emotional learning and creative arts.',
   },
   {

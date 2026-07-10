@@ -8,19 +8,19 @@ import JungleBanner from '../components/JungleBanner'
 const whyCards = [
   {
     title: 'Relationships First',
-    desc: 'Trust and connection as the foundation for learning.',
+    desc: 'Trust and connection as the foundation for learning',
   },
   {
     title: 'Every Child Is Unique',
-    desc: "Honoring each child's individual interests and developmental pace.",
+    desc: "Honoring each child's individual interests and developmental pace",
   },
   {
     title: 'Partners with Families',
-    desc: 'Collaborating with parents to create the best environment for growth.',
+    desc: 'Collaborating with parents to create the best environment for growth',
   },
   {
     title: 'Joyful Learning',
-    desc: 'Play-based curriculum that fosters wonder and discovery.',
+    desc: 'Play-based curriculum that fosters wonder and discovery',
   },
 ]
 
