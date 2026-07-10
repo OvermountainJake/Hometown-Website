@@ -2,18 +2,11 @@ import { useState } from 'react'
 
 const testimonials = [
   {
-    quote: "From the moment we walked through the doors, we knew Hometown Preschool was something special. Our daughters have flourished here, surrounded by teachers who truly care about their happiness and growth.",
-    family: 'The Colstad Family',
-    bg: '#FDF6E9',
-    rotate: -2.5,
-    offset: 0,
-  },
-  {
     quote: "We love Hometown Preschool! Over the past five years, both of my boys have attended, and it has been a wonderful experience. The staff is fantastic. I always know my boys are well cared for and having fun while they are in their care.",
     family: 'The Chatham Family',
-    bg: '#EAF5F2',
-    rotate: 1.5,
-    offset: 32,
+    bg: '#FDF6E9',
+    rotate: -2,
+    offset: 0,
   },
   {
     quote: "We have had such a wonderful experience at Hometown Preschool with both our kids. From day one, the teachers and staff have created a warm, welcoming environment where our kids feel safe, supported, and genuinely excited to learn each day. It's clear how much care and intention goes into everything they do.",
@@ -40,7 +33,7 @@ const traditions = [
   },
   {
     title: '4K Graduation',
-    body: "For our oldest friends, 4K graduation marks a big step toward kindergarten. Caps, certificates, and a few happy tears send them off ready — and remind us just how far they've grown while they've been with us.",
+    body: "For our 4K friends, graduation marks a big step toward kindergarten. Caps, certificates, and a few happy tears send them off ready — and remind us just how far they've grown while they've been with us.",
     images: [{ src: '/images/event-graduation.jpg', alt: '4K graduates at Hometown Preschool', n: 10 }],
   },
 ]
@@ -214,7 +207,7 @@ export default function About() {
             {testimonials.map(({ quote, family, bg, rotate, offset }) => (
               <div
                 key={family}
-                className="relative w-full md:w-1/3 p-7 pt-9 transition-transform duration-300 hover:!rotate-0 hover:!translate-y-0"
+                className="relative w-full md:w-2/5 p-7 pt-9 transition-transform duration-300 hover:!rotate-0 hover:!translate-y-0"
                 style={{
                   backgroundColor: bg,
                   borderRadius: 4,
