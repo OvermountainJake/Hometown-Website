@@ -19,48 +19,52 @@ const leadership = [
   },
 ]
 
-// NOTE: group assignments below are a placeholder distribution.
 const educatorGroups = [
   {
-    category: 'Infant Care Staff',
+    category: 'Infant Staff',
     staff: [
       { name: 'Ms. Jenn', since: '2022', credential: "Associate's in Early Childhood Education" },
-      { name: 'Ms. Jenny', since: 'January 2025', credential: 'Third year of teaching early childhood' },
-      { name: 'Ms. Kari', since: '2021', credential: '13th year of teaching early childhood' },
+      { name: 'Ms. Kathy', since: '2019', credential: 'BS in Elementary Education' },
     ],
   },
   {
-    category: 'Toddler Care Staff',
+    category: 'Toddler Staff',
     staff: [
-      { name: 'Ms. Brittney', since: '2017', credential: 'Graduated BYU–Idaho 2014; over a decade with children' },
-      { name: 'Ms. Mailia', since: '2018', credential: 'BS in Elementary Education, UW–Madison; 20 years with 3–4 year olds' },
-      { name: 'Ms. Selena', since: 'early 2025', credential: 'Studied at Madison College' },
-    ],
-  },
-  {
-    category: 'Pre-School Staff',
-    staff: [
-      { name: 'Mr. Jake', since: '2022', credential: 'Studied at Madison College' },
-      { name: 'Ms. Luba', since: '2025', credential: 'Studied education in Russia' },
+      { name: 'Ms. Kailin', since: '2010', credential: 'ECE studies at Madison College' },
       { name: 'Ms. Mary', since: '2019', credential: null },
     ],
   },
   {
-    category: '4K / Wrap Care Staff',
+    category: 'Preschool Staff',
     staff: [
-      { name: 'Ms. Hunter', since: '2025', credential: null },
-      { name: 'Ms. Leah', since: '2020', credential: 'AA in Applied Science, NICC' },
-      { name: 'Ms. Megan', since: '2025', credential: 'BA in History, Loyola University' },
+      { name: 'Ms. Selena', since: 'early 2025', credential: 'Studied at Madison College' },
+      { name: 'Ms. Kari', since: '2021', credential: '13th year of teaching early childhood' },
+      { name: 'Ms. Eowyn', since: '2023', credential: null },
+      { name: 'Ms. Brittney', since: '2017', credential: 'Graduated BYU–Idaho 2014; over a decade with children' },
+      { name: 'Ms. Mailia', since: '2018', credential: 'BS in Elementary Education, UW–Madison; 20 years with 3–4 year olds' },
     ],
   },
   {
-    category: 'Support Teaching Staff',
+    category: '4K Staff',
     staff: [
-      { name: 'Ms. Kathy', since: '2019', credential: 'BS in Elementary Education' },
-      { name: 'Ms. Eowyn', since: '2023', credential: null },
-      { name: 'Ms. Kailin', since: '2010', credential: 'ECE studies at Madison College' },
+      { name: 'Mr. Jake', since: '2022', credential: 'Studied at Madison College' },
+      { name: 'Ms. Luba', since: '2025', credential: 'Studied education in Russia' },
+    ],
+  },
+  {
+    category: 'School-Age Staff',
+    staff: [
+      { name: 'Ms. Mary', since: '2019', credential: null },
+    ],
+  },
+  {
+    category: 'Support Staff',
+    staff: [
+      { name: 'Ms. Megan', since: '2025', credential: 'BA in History, Loyola University' },
       { name: 'Ms. Morgan', since: '2025', credential: 'BA in Criminal Justice, Iowa State University' },
       { name: 'Ms. Cat', since: '2024', credential: 'Kitchen Manager — homemade breakfast, lunch & snack daily' },
+      { name: 'Ms. Hunter', since: '2025', credential: null },
+      { name: 'Ms. Alice', since: null, credential: null },
     ],
   },
 ]
