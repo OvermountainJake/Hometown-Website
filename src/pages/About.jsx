@@ -21,20 +21,20 @@ const traditions = [
   {
     title: 'Thanksgiving Dinner',
     body: "Every November, families gather around long tables for a Thanksgiving meal cooked from scratch in our own kitchen. Children help set the tables and welcome their grown-ups, turning an ordinary school day into a shared celebration of gratitude.",
-    images: [{ src: '/images/event-thanksgiving.jpg', alt: 'Families sharing Thanksgiving dinner at Hometown Preschool', n: 7 }],
+    images: [{ src: '/images/Image 7.png', alt: 'Families sharing Thanksgiving dinner at Hometown Preschool', n: 7 }],
   },
   {
     title: 'Christmas Program',
     body: "Weeks of practice come together on one joyful night. Our children take the stage to sing for a room full of proud parents, grandparents, and siblings — a little nervous, a lot excited, and unforgettable every single year.",
     images: [
-      { src: '/images/event-christmas-1.jpg', alt: 'Children performing at the Hometown Preschool Christmas program', n: 8 },
-      { src: '/images/event-christmas-2.jpg', alt: 'Families watching the Hometown Preschool Christmas program', n: 9 },
+      { src: '/images/Image 8.png', alt: 'Children performing at the Hometown Preschool Christmas program', n: 8 },
+      { src: '/images/Image 9.png', alt: 'Families watching the Hometown Preschool Christmas program', n: 9 },
     ],
   },
   {
     title: '4K Graduation',
     body: "For our 4K friends, graduation marks a big step toward kindergarten. Caps, certificates, and a few happy tears send them off ready — and remind us just how far they've grown while they've been with us.",
-    images: [{ src: '/images/event-graduation.jpg', alt: '4K graduates at Hometown Preschool', n: 10 }],
+    images: [{ src: '/images/Image 10.png', alt: '4K graduates at Hometown Preschool', n: 10 }],
   },
 ]
 
@@ -146,7 +146,7 @@ export default function About() {
                 className="cursor-pointer"
                 onClick={() => setLightbox(n)}
               >
-                <TraditionImage src={`/images/hero-${n}.jpg`} alt="" height={200} label={`IMAGE ${n}`} />
+                <TraditionImage src={`/images/Image ${n}.png`} alt="" height={200} label={`IMAGE ${n}`} />
               </div>
             ))}
           </div>
@@ -186,7 +186,7 @@ export default function About() {
           </span>
           {lightbox && (
             <img
-              src={`/images/hero-${lightbox}.jpg`}
+              src={`/images/Image ${lightbox}.png`}
               alt=""
               className="w-full h-full object-cover relative"
               onError={(e) => { e.target.style.display = 'none' }}

@@ -127,7 +127,7 @@ export default function Programs() {
                 {/* Photo placeholder featuring the animal icon */}
                 <div className="w-full lg:w-1/2 flex-shrink-0">
                   <div
-                    className="rounded-[2rem] flex flex-col items-center justify-center gap-5 px-6"
+                    className="relative overflow-hidden rounded-[2rem] flex flex-col items-center justify-center gap-5 px-6"
                     style={{
                       backgroundColor: prog.color + '14',
                       border: `2px dashed ${prog.color}55`,
@@ -144,6 +144,14 @@ export default function Programs() {
                     >
                       IMAGE {11 + i}
                     </span>
+                    {/* Real photo — covers the placeholder when present */}
+                    <img
+                      src={`/images/Image ${11 + i}.png`}
+                      alt={prog.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onLoad={(e) => { const box = e.target.parentElement; box.style.border = 'none'; box.style.backgroundColor = 'transparent' }}
+                      onError={(e) => { e.target.style.display = 'none' }}
+                    />
                   </div>
                 </div>
 

@@ -141,7 +141,7 @@ export default function Team() {
                   IMAGE 16
                 </span>
                 <img
-                  src="/images/team-leadership.jpg"
+                  src="/images/Image 16.png"
                   alt="Hometown Preschool leadership team"
                   className="w-full h-full object-cover relative block"
                   style={{ minHeight: 340 }}
@@ -206,7 +206,7 @@ export default function Team() {
                   IMAGE 17
                 </span>
                 <img
-                  src="/images/team-educators.jpg"
+                  src="/images/Image 17.png"
                   alt="Hometown Preschool educators"
                   className="w-full h-full object-cover relative block"
                   onError={(e) => { e.target.style.display = 'none' }}
