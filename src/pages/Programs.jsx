@@ -18,13 +18,13 @@ const programs = [
   },
   {
     slug: 'foxes',
-    name: 'Foxes',
+    name: 'Foxes & Otters',
     ages: '2–3 Years',
     photo: '/images/foxes-photo.png',
     illustration: '/images/classrooms/foxes.svg',
     color: '#E8A838',
     description:
-      'Toddlers are natural explorers. Our Foxes classroom channels that boundless curiosity into joyful, hands-on learning experiences that build confidence, language, and early social skills.',
+      'Toddlers are natural explorers. Our Foxes & Otters classroom channels that boundless curiosity into joyful, hands-on learning experiences that build confidence, language, and early social skills.',
     bullets: [
       'Hands-on activities to stimulate learning',
       'Language-rich environments to build vocabulary',

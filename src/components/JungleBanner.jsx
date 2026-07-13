@@ -14,8 +14,8 @@ const animals = [
   {
     slug: 'foxes',
     src: '/images/classrooms/foxes.svg',
-    alt: 'Foxes',
-    name: 'Foxes',
+    alt: 'Foxes & Otters',
+    name: 'Foxes & Otters',
     age: '2 – 3 years',
     desc: 'Channels toddler curiosity into joyful learning. Creative play, hands-on activities, early social skills.',
     size: 108,
