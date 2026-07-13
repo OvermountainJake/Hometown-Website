@@ -18,7 +18,7 @@ const animals = [
     name: 'Foxes & Otters',
     age: '2 – 3 years',
     desc: 'Channels toddler curiosity into joyful learning. Creative play, hands-on activities, early social skills.',
-    size: 108,
+    size: 165,
   },
   {
     slug: 'owls',

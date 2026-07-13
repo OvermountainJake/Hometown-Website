@@ -22,6 +22,7 @@ const programs = [
     ages: '2–3 Years',
     photo: '/images/foxes-photo.png',
     illustration: '/images/classrooms/foxes.svg',
+    iconScale: 1.4,
     color: '#E8A838',
     description:
       'Toddlers are natural explorers. Our Foxes & Otters classroom channels that boundless curiosity into joyful, hands-on learning experiences that build confidence, language, and early social skills.',
@@ -115,6 +116,7 @@ export default function Programs() {
       {/* Program sections */}
       {programs.map((prog, i) => {
         const isEven = i % 2 === 0
+        const s = prog.iconScale || 1
         return (
           <section
             key={prog.name}
@@ -137,7 +139,7 @@ export default function Programs() {
                     <img
                       src={prog.illustration}
                       alt={prog.name}
-                      style={{ width: 'clamp(120px, 22vw, 170px)', height: 'clamp(120px, 22vw, 170px)', objectFit: 'contain' }}
+                      style={{ width: `clamp(${120 * s}px, ${22 * s}vw, ${170 * s}px)`, height: `clamp(${120 * s}px, ${22 * s}vw, ${170 * s}px)`, objectFit: 'contain' }}
                     />
                     <span
                       style={{ color: '#555', fontFamily: 'Nunito, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase' }}
@@ -161,7 +163,7 @@ export default function Programs() {
                     <img
                       src={prog.illustration}
                       alt=""
-                      style={{ width: 'clamp(64px, 12vw, 88px)', height: 'clamp(64px, 12vw, 88px)', objectFit: 'contain', flexShrink: 0 }}
+                      style={{ width: `clamp(${64 * s}px, ${12 * s}vw, ${88 * s}px)`, height: `clamp(${64 * s}px, ${12 * s}vw, ${88 * s}px)`, objectFit: 'contain', flexShrink: 0 }}
                     />
                     <div>
                       <h2
